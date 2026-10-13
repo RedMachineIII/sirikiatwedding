@@ -55,7 +55,7 @@ h1 {
 
 .intro {
   font-size: 14px;
-  margin: 0 0 32px;
+  margin: 0 0 20px;
   color: var(--muted);
 }
 
@@ -65,7 +65,7 @@ h1 {
 .envelope-scene {
   position: relative;
   width: min(100%, 460px); /* ขยายขนาดซองให้กว้างและได้สัดส่วนตาม image_0.png */
-  height: 310px;
+  height: 270px;
   margin: 10px auto 25px;
   perspective: 1000px;
 }
@@ -164,7 +164,8 @@ h1 {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--primary);
+  background: var(--brown);
+  /* background: var(--primary); */
   color: white;
   display: grid;
   place-items: center;
@@ -175,6 +176,10 @@ h1 {
 }
 
 /* === แอนิเมชันเปิดฝาและดันการ์ดขยายขึ้น (ตาม image_1) === */
+.envelope-scene.open {
+  height: 570px;
+  transition: height 0.8s ease-in-out;
+}
 
 /* 1. ฝาบนเปิดขึ้นหมุนไปข้างหลัง */
 .envelope-scene.open .flap-off {
@@ -183,6 +188,7 @@ h1 {
 }
 .envelope-scene.open .flap-on {
   bottom: 25%;
+  transition: bottom 0.8s ease-in-out;
 }
 /* .envelope-scene.open .envelope {
   border-radius: 0;
@@ -196,9 +202,9 @@ h1 {
 
 /* 3. การ์ดพุ่งทะยานพ้นซองแสดงภาพชัดเจน */
 .envelope-scene.open .letter {
-  height: 480px;
+  height: 550px;
   transform: translateY(0px);
-  transition-delay: 0.6s;
+  transition-delay: 0.8s;
 }
 
 /* ปุ่ม "เปิดการ์ดเชิญ ♡" */
@@ -272,11 +278,31 @@ h1 {
   background: #d9b3a9;
 }
 
-.couple {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 7vw, 40px);
-  line-height: 1.35;
+.couple-en {
+  /* font-family: "Playfair Display", serif; */
+  /* font-family: "Stalemate", cursive; */
+  font-family: "MonteCarlo", cursive;
+  /* font-family: "Rochester", cursive; */
+  /* font-family: "Great Vibes", cursive; */
+  font-size: clamp(35px, 10vw, 50px);
+  line-height: 1;
+  color: var(--brown);
+  /* color: var(--primary-dark); */
+}
+
+.couple-th {
+  font-family: "Noto Sans Thai", sans-serif;
+  font-size: 22px;
+  line-height: 1.2;
   color: var(--primary-dark);
+  margin: 30px 0px;
+}
+.couple-th-sm {
+  font-family: "Noto Sans Thai", sans-serif;
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--primary-dark);
+  margin: 30px 0px;
 }
 
 .date {

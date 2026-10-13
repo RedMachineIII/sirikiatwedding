@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Siriyupha 🤍 Kiattisak | Wedding Invitation</title>
+  <title>Siri Kiat | Wedding Invitation</title>
+  <link rel="apple-touch-icon-precomposed" href="img/title.jpg" />
+  <link rel="icon" href="img/title.jpg" />
 
   <!-- Open Graph พรีวิวเมื่อส่งใน LINE -->
+
   <meta property="og:title" content="Siriyupha 🤍 Kiattisak | Wedding Invitation">
   <meta property="og:description" content="ขอเชิญร่วมเป็นส่วนหนึ่งในวันสำคัญของเรา วันเสาร์ที่ 19 ธันวาคม 2569 ณ ราชาวดี รีสอร์ท โฮเทล ขอนแก่น">
   <meta property="og:type" content="website">
@@ -15,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=MonteCarlo&family=Rochester&family=Stalemate&display=swap" rel="stylesheet">
 
   <!-- เชื่อมโยงไฟล์ CSS -->
   <link rel="stylesheet" href="css/style.css">
@@ -23,8 +27,18 @@
 <body>
   <main class="page">
     <div class="eyebrow">A Special Day · A Special Invitation</div>
-    <h1>You're Invited</h1>
-    <p class="intro">ขอเชิญร่วมเป็นส่วนหนึ่งในวันสำคัญของเรา</p>
+    <!-- <h1>You're Invited</h1>
+    <p class="intro">ขอเชิญร่วมเป็นส่วนหนึ่งในวันสำคัญของเรา</p>   -->
+
+    <p class="intro" style="margin-top: 30px;">
+      ขอเชิญทุกคนมาร่วมเป็นสักขีพยาน<br>
+      ร่วมแสดงความยินดี และเก็บความทรงจำดี ๆ<br>
+      ไปด้วยกันในวันแต่งงานของเรา
+    </p>
+
+    <!-- <div class="couple-en" style="margin-bottom: 10px; margin-top: 10px;">Siriyupha <small style="font-size: 30px;">♡</small> Kiattisak</div> -->
+    <div class="couple-en" style="margin-right: 100px;">Siriyupha</div>
+    <div class="couple-en" style="margin-left: 100px;">Kiattisak</div>
 
     <!-- ซองจดหมาย -->
     <section class="envelope-scene" id="envelopeScene" aria-label="ซองจดหมายเชิญงานแต่งงาน">
@@ -44,7 +58,7 @@
         <div class="flap-off"></div>
 
         <!-- ตราประทับครั่ง -->
-        <div class="seal">♡</div>
+        <div class="seal" style="cursor: pointer;" onclick="openInvitation()">♡</div>
       </div>
     </section>
 
@@ -60,22 +74,39 @@
       </div>
 
       <div class="card">
-        <div class="eyebrow">Let's spend the rest of our lives together</div>
+        <div class="eyebrow">Invitation</div>
         <div class="divider"></div>
-
-        <p class="message">
-          ขอเชิญทุกคนมาร่วมเป็นสักขีพยาน<br>
-          ร่วมแสดงความยินดี และเก็บความทรงจำดี ๆ<br>
-          ไปด้วยกันในวันแต่งงานของเรา
-        </p>
-
-        <div class="couple">Siriyupha<br>♡<br>Kiattisak</div>
 
         <div class="date">SATURDAY · 19 DECEMBER 2026</div>
         <div class="thai-date">วันเสาร์ที่ 19 ธันวาคม 2569</div>
 
-        <div class="divider"></div>
+        <table class="couple-th-sm" style="width: 100%;">
+          <tr>
+            <td style="width: 45%;" align="middle" style="text-align: right !important;">
+              คุณพ่อ สุขุม แหวนนิล<br>คุณแม่ บุญเรือง แผลงฤทธิ์
+            </td>
+            <td style="width: 10%;" align="middle" style="text-align: center;">และ</td>
+            <td style="width: 45%;" align="middle" style="text-align: left !important;">
+              คุณพ่อ ณรงค์ ไหมทอง<br>คุณแม่ ฉวีวรรณ ไหมทอง
+            </td>
+          </tr>
+        </table>
+        
+        <p class="message">
+          มีความยินดีขอเรียนเชิญท่านเพื่อเป็นเกียรติเนื่องในงานพิธีมงคลสมรส<br>
+          ระหว่าง
+        </p>
 
+        <div class="couple-th">สิริยุพา แหวนนิล (หญิง)<br>♡<br>เกียรติศักดิ์ ไหมทอง (กอล์ฟ)</div>
+        
+        <p class="message">
+          ขออภัยหากมิได้เรียนเชิญด้วยตนเอง
+        </p>
+
+        <div class="divider"></div>
+      </div>
+
+      <div class="card">
         <div class="eyebrow">THE WEDDING VENUE</div>
         <div class="venue">ราชาวดี รีสอร์ท โฮเทล</div>
         <div>ขอนแก่น</div>
@@ -154,11 +185,16 @@
         </button>
       </div>
 
-      <div class="footer">
-        THANK YOU<br>
+      <!-- <div class="footer">
+        Let's spend the rest of our lives together<br>
         #SiriKiatWeddingYG
-      </div>
+      </div> -->
     </section>
+
+    <div class="footer">
+      Let's spend the rest of our lives together<br>
+      #SiriKiatWeddingYG
+    </div>
   </main>
 
   <!-- เชื่อมโยงไฟล์ JavaScript -->
