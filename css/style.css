@@ -1,0 +1,411 @@
+:root {
+  /* โทนสีหลัก #C28248 และสีน้ำตาลอุ่นหรูหรา */
+  --primary: #C28248;
+  --primary-dark: #A46631;
+  --pink: #F4EBE3;
+  --cream: #FFFDF9;
+  --brown: #4A3324;
+  --muted: #99755E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #FFFDF9, transparent 65%),
+    var(--pink);
+  color: var(--brown);
+  /* font-family: "Kanit", sans-serif; */
+  font-family: "Noto Sans Thai", sans-serif;
+  font-weight: 500;
+  overflow-x: hidden;
+}
+
+button, a, input, select, textarea {
+  font: inherit;
+}
+
+.page {
+  width: min(100% - 28px, 540px);
+  margin: auto;
+  padding: 42px 0 32px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 8vw, 46px);
+  font-weight: 400;
+  margin: 12px 0 6px;
+  color: var(--brown);
+}
+
+.intro {
+  font-size: 14px;
+  margin: 0 0 32px;
+  color: var(--muted);
+}
+
+/* ==========================================
+   Envelope Scene (มิติจำลองและซองจดหมายตามแบบภาพ)
+========================================== */
+.envelope-scene {
+  position: relative;
+  width: min(100%, 460px); /* ขยายขนาดซองให้กว้างและได้สัดส่วนตาม image_0.png */
+  height: 310px;
+  margin: 10px auto 25px;
+  perspective: 1000px;
+}
+
+.envelope {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 250px; /* ปรับมิติกล่องนอกให้สูงขึ้นพอดีกับการ์ด 235px เพื่อไม่ให้แลบพ้นขอบบน */
+  background: #DCB897;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(74, 51, 36, 0.15);
+}
+
+/* แผ่นการ์ดซองจดหมาย (ซ่อนมิดชิดด้านในเมื่อปิด และเลื่อนพ้นแบบไม่มีแลบ) */
+.letter {
+  position: absolute;
+  z-index: 6;
+  left: 4.5%;
+  bottom: 12px;
+  width: 91%;
+  height: 235px;
+  padding: 0 !important;
+  background: var(--cream);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(74, 51, 36, 0.1);
+  transform: translateY(0px);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0s;
+}
+
+/* ตัวรูปภาพด้านในแบบเต็มใบ */
+.letter-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* กระเป๋าปิดด้านหน้า (Pocket V-Shape ตาม image_1) */
+.pocket {
+  position: absolute;
+  inset: 0;
+  background: #D4AA85;
+  clip-path: polygon(0 20%, 50% 70%, 100% 20%, 100% 100%, 0 100%);
+  /* clip-path: polygon(0 38%, 50% 68%, 100% 38%, 100% 100%, 0 100%); */
+  z-index: 6;
+  border-radius: inherit;
+  backface-visibility: hidden;
+}
+
+/* ฝาสามเหลี่ยมปิดซอง (Flap Geometric ตาม image_0) */
+.flap-off {
+  position: absolute;
+  z-index: 7;
+  border-radius: inherit;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 70%;
+  background: #EED7C3;
+  /* clip-path: polygon(0 0, 100% 0, 50% 100%); */
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 50% 100%, 0 30%);
+  transform-origin: top center;
+  transition: transform 0.6s ease-in-out;
+  backface-visibility: hidden;
+}
+
+/* ฝาสามเหลี่ยมเปิดซอง */
+.flap-on {
+  position: absolute;
+  z-index: 0;
+  border-radius: inherit;
+  left: 0;
+  bottom: -70%;
+  width: 100%;
+  height: 70%;
+  background: #DCB897;
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 50% 100%, 0 30%);
+  transform-origin: top center;
+  transform: scaleY(-1);
+  transition: bottom 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* ตราประทับครั่ง #C28248 พร้อมหัวใจตรงกลาง */
+.seal {
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease;
+  user-select: none;
+}
+
+/* === แอนิเมชันเปิดฝาและดันการ์ดขยายขึ้น (ตาม image_1) === */
+
+/* 1. ฝาบนเปิดขึ้นหมุนไปข้างหลัง */
+.envelope-scene.open .flap-off {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+.envelope-scene.open .flap-on {
+  bottom: 25%;
+}
+/* .envelope-scene.open .envelope {
+  border-radius: 0;
+} */
+
+/* 2. ตราประทับหายไป */
+.envelope-scene.open .seal {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 3. การ์ดพุ่งทะยานพ้นซองแสดงภาพชัดเจน */
+.envelope-scene.open .letter {
+  height: 480px;
+  transform: translateY(0px);
+  transition-delay: 0.6s;
+}
+
+/* ปุ่ม "เปิดการ์ดเชิญ ♡" */
+.open-button, .action-button {
+  display: inline-block;
+  border: 0;
+  border-radius: 999px;
+  background: var(--brown);
+  color: white;
+  padding: 12px 32px;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 4px 12px rgba(74, 51, 36, 0.15);
+}
+
+.open-button:active, .action-button:active {
+  transform: scale(0.96);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 12px 0 32px;
+}
+
+/* ==========================================
+   Invitation Content (ส่วนรายละเอียดการ์ดล่างสุด)
+========================================== */
+.invitation {
+  display: none;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.invitation.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-img {
+  padding: 10px;
+  background: var(--cream);
+  border: 1px solid #ead5ca;
+  border-radius: 6px;
+  box-shadow: 0 12px 32px rgba(74, 51, 36, 0.08);
+  margin-bottom: 24px;
+}
+
+.card {
+  padding: 34px 24px;
+  background: var(--cream);
+  border: 1px solid #ead5ca;
+  border-radius: 6px;
+  box-shadow: 0 12px 32px rgba(74, 51, 36, 0.08);
+  margin-bottom: 24px;
+}
+
+.divider {
+  width: 55px;
+  height: 1px;
+  margin: 22px auto;
+  background: #d9b3a9;
+}
+
+.couple {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 7vw, 40px);
+  line-height: 1.35;
+  color: var(--primary-dark);
+}
+
+.date {
+  margin: 15px 0 5px;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.thai-date {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.message {
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.venue {
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+.schedule {
+  margin-top: 28px;
+  text-align: left;
+}
+
+.schedule h2 {
+  font-size: 19px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--primary-dark);
+}
+
+.event {
+  display: grid;
+  grid-template-columns: 65px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0e2da;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.time {
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.action-button.secondary {
+  color: var(--brown);
+  background: transparent;
+  border: 1px solid #d8b6ad;
+}
+
+/* ==========================================
+   RSVP Form (แบบฟอร์มบันทึกข้อมูล)
+========================================== */
+.rsvp-form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: var(--brown);
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d8b6ad;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--brown);
+  outline: none;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(194, 130, 72, 0.2);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--primary);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+#rsvpAlert {
+  display: none;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.alert-success { background: #e8f5e9; color: #2e7d32; }
+.alert-error { background: #ffebee; color: #c62828; }
+
+.footer {
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 12px;
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Siriyupha 🤍 Kiattisak | Wedding Invitation</title>
+
+  <!-- Open Graph พรีวิวเมื่อส่งใน LINE -->
+  <meta property="og:title" content="Siriyupha 🤍 Kiattisak | Wedding Invitation">
+  <meta property="og:description" content="ขอเชิญร่วมเป็นส่วนหนึ่งในวันสำคัญของเรา วันเสาร์ที่ 19 ธันวาคม 2569 ณ ราชาวดี รีสอร์ท โฮเทล ขอนแก่น">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- เชื่อมโยงไฟล์ CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main class="page">
+    <div class="eyebrow">A Special Day · A Special Invitation</div>
+    <h1>You're Invited</h1>
+    <p class="intro">ขอเชิญร่วมเป็นส่วนหนึ่งในวันสำคัญของเรา</p>
+
+    <!-- ซองจดหมาย -->
+    <section class="envelope-scene" id="envelopeScene" aria-label="ซองจดหมายเชิญงานแต่งงาน">
+      <div class="envelope">
+        <!-- ฝาสามเหลี่ยมเปิดซอง -->
+        <div class="flap-on"></div>
+
+        <!-- แผ่นการ์ดด้านในซอง (มีเพียงรูปภาพเต็มใบ) -->
+        <div class="letter">
+          <img src="img/Original - 1.png" alt="Siriyupha ♡ Kiattisak" class="letter-img">
+        </div>
+
+        <!-- กระเป๋าหน้าซอง -->
+        <div class="pocket"></div>
+
+        <!-- ฝาสามเหลี่ยมปิดซอง -->
+        <div class="flap-off"></div>
+
+        <!-- ตราประทับครั่ง -->
+        <div class="seal">♡</div>
+      </div>
+    </section>
+
+    <button class="open-button" id="openButton" onclick="openInvitation()">
+      เปิดการ์ดเชิญ ♡
+    </button>
+    <p class="hint" id="hint">แตะเพื่อเปิดซองจดหมาย</p>
+
+    <!-- เนื้อหาการ์ดเชิญหลัก -->
+    <section class="invitation" id="invitation">
+      <div class="card-img">
+        <img src="img/MERGE - FHD.png" class="img-fluid">
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Let's spend the rest of our lives together</div>
+        <div class="divider"></div>
+
+        <p class="message">
+          ขอเชิญทุกคนมาร่วมเป็นสักขีพยาน<br>
+          ร่วมแสดงความยินดี และเก็บความทรงจำดี ๆ<br>
+          ไปด้วยกันในวันแต่งงานของเรา
+        </p>
+
+        <div class="couple">Siriyupha<br>♡<br>Kiattisak</div>
+
+        <div class="date">SATURDAY · 19 DECEMBER 2026</div>
+        <div class="thai-date">วันเสาร์ที่ 19 ธันวาคม 2569</div>
+
+        <div class="divider"></div>
+
+        <div class="eyebrow">THE WEDDING VENUE</div>
+        <div class="venue">ราชาวดี รีสอร์ท โฮเทล</div>
+        <div>ขอนแก่น</div>
+
+        <div class="schedule">
+          <h2>กำหนดการ</h2>
+          <div class="event">
+            <div class="time">07:09 น.</div>
+            <div>แห่ขบวนขันหมาก</div>
+          </div>
+          <div class="event">
+            <div class="time">07:39 น.</div>
+            <div>พิธีสู่ขอและพิธีสวมแหวนหมั้น</div>
+          </div>
+          <div class="event">
+            <div class="time">08:09 น.</div>
+            <div>พิธีบายศรีสู่ขวัญ (ผูกข้อมือ)</div>
+          </div>
+          <div class="event">
+            <div class="time">09:09 น.</div>
+            <div>พิธีหลั่งน้ำพระพุทธมนต์ (รดน้ำสังข์)</div>
+          </div>
+          <div class="event">
+            <div class="time">11:00 น.</div>
+            <div>ร่วมรับประทานอาหาร ฉลองมงคลสมรส</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="action-button"
+             href="https://www.google.com/maps/search/?api=1&query=%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%B2%E0%B8%A7%E0%B8%94%E0%B8%B5%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97%20%E0%B9%82%E0%B8%AE%E0%B9%80%E0%B8%97%E0%B8%A5%20%E0%B8%82%E0%B8%AD%E0%B8%99%E0%B9%81%E0%B8%81%E0%B9%88%E0%B8%99"
+             target="_blank" rel="noopener">
+            ดูแผนที่ ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- แบบฟอร์ม RSVP -->
+      <div class="card">
+        <div class="eyebrow">RSVP · ตอบรับการมาร่วมงาน</div>
+        <div class="divider"></div>
+
+        <form class="rsvp-form" id="rsvpForm" onsubmit="submitRSVP(event)">
+          <div class="form-group">
+            <label for="guestName">ชื่อ-นามสกุล *</label>
+            <input type="text" id="guestName" class="form-control" required placeholder="กรุณาระบุ ชื่อ-นามสกุล">
+          </div>
+
+          <div class="form-group">
+            <label for="attendance">การเข้าร่วมงาน *</label>
+            <select id="attendance" class="form-control" required>
+              <option value="สามารถมาร่วมงานได้">ยินดีมาร่วมงาน ♡</option>
+              <option value="ไม่สะดวกมาร่วมงาน">ไม่สะดวกมาร่วมงาน</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="guestCount">จำนวนผู้ติดตาม (รวมตัวท่าน)</label>
+            <input type="number" id="guestCount" class="form-control" min="1" max="10" value="1">
+          </div>
+
+          <div class="form-group">
+            <label for="wishes">คำอวยพรเจ้าสาว-เจ้าบ่าว ♡</label>
+            <textarea id="wishes" class="form-control" rows="3" placeholder="เขียนคำอวยพรที่นี่..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">ส่งแบบตอบรับ</button>
+        </form>
+
+        <div id="rsvpAlert"></div>
+      </div>
+
+      <div class="actions" style="margin-bottom: 20px;">
+        <button class="action-button secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+          กลับด้านบน ↑
+        </button>
+      </div>
+
+      <div class="footer">
+        THANK YOU<br>
+        #SiriKiatWeddingYG
+      </div>
+    </section>
+  </main>
+
+  <!-- เชื่อมโยงไฟล์ JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
