@@ -63,7 +63,7 @@ function submitRSVP(e) {
   };
 
   // ⚠️ นำ Web App URL ของคุณมาวางในช่องนี้ ⚠️
-  let GAS_URL = 'https://script.google.com/macros/s/AKfycbz1P1T3BP3ML_GlJekD8E2QCnqDZ15f5yC2a_FjUzCD0T-ipgAm-CbeXE04N5GhoHjYug/exec';
+  let GAS_URL = 'https://script.google.com/macros/s/AKfycbw9-7JRV_dL0PlyVVlJcXXDhtf3BMIHMjXjlypx68z2ih32-4a3bMonjZIMH4FYio2hZA/exec';
 
   fetch(GAS_URL, {
     method: 'POST',
