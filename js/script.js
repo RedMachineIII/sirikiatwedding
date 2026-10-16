@@ -37,22 +37,33 @@ function openInvitation() {
 
 function submitRSVP(e) {
   e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  const alertBox = document.getElementById('rsvpAlert');
+  let btn = document.getElementById('submitBtn');
+  let alertBox = document.getElementById('rsvpAlert');
+  
+  let name = document.getElementById('guestName').value;
+  let attendance = document.getElementById('attendance').value;
+  let guests = document.getElementById('guestCount').value;
+  let wishes = document.getElementById('wishes').value;
+
+  if(String(name || '').trim() == '') {
+    return;
+  } else if(String(guests || '').trim() == '' || guests <= 0) {
+    return;
+  }
 
   btn.disabled = true;
   btn.textContent = 'กำลังบันทึกข้อมูล...';
   alertBox.style.display = 'none';
 
-  const formData = {
-    name: document.getElementById('guestName').value,
-    attendance: document.getElementById('attendance').value,
-    guests: document.getElementById('guestCount').value,
-    wishes: document.getElementById('wishes').value
+  let formData = {
+    name: String(name || ''),
+    attendance: attendance,
+    guests: guests,
+    wishes: String(wishes || '')
   };
 
   // ⚠️ นำ Web App URL ของคุณมาวางในช่องนี้ ⚠️
-  const GAS_URL = 'https://script.google.com/macros/s/AKfycbz1P1T3BP3ML_GlJekD8E2QCnqDZ15f5yC2a_FjUzCD0T-ipgAm-CbeXE04N5GhoHjYug/exec';
+  let GAS_URL = 'https://script.google.com/macros/s/AKfycbz1P1T3BP3ML_GlJekD8E2QCnqDZ15f5yC2a_FjUzCD0T-ipgAm-CbeXE04N5GhoHjYug/exec';
 
   fetch(GAS_URL, {
     method: 'POST',

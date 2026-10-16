@@ -138,9 +138,14 @@
 
         <div class="actions">
           <a class="action-button"
-             href="https://www.google.com/maps/search/?api=1&query=%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%B2%E0%B8%A7%E0%B8%94%E0%B8%B5%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97%20%E0%B9%82%E0%B8%AE%E0%B9%80%E0%B8%97%E0%B8%A5%20%E0%B8%82%E0%B8%AD%E0%B8%99%E0%B9%81%E0%B8%81%E0%B9%88%E0%B8%99"
-             target="_blank" rel="noopener">
-            ดูแผนที่ ↗
+            href="https://www.google.com/maps/search/?api=1&query=%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%B2%E0%B8%A7%E0%B8%94%E0%B8%B5%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97%20%E0%B9%82%E0%B8%AE%E0%B9%80%E0%B8%97%E0%B8%A5%20%E0%B8%82%E0%B8%AD%E0%B8%99%E0%B9%81%E0%B8%81%E0%B9%88%E0%B8%99"
+            target="_blank" rel="noopener">
+            ดูแผนที่
+          </a>
+          <a class="line-button"
+            href="https://lin.ee/TeJUBSv"
+            target="_blank" rel="noopener">
+            <img src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png" alt="เพิ่มเพื่อน" height="36" border="0" style="margin-top: 5px; border-radius: 999px;">
           </a>
         </div>
       </div>
@@ -150,7 +155,7 @@
         <div class="eyebrow">RSVP · ตอบรับการมาร่วมงาน</div>
         <div class="divider"></div>
 
-        <form class="rsvp-form" id="rsvpForm" onsubmit="submitRSVP(event)">
+        <form class="rsvp-form" id="rsvpForm">
           <div class="form-group">
             <label for="guestName">ชื่อ-นามสกุล *</label>
             <input type="text" id="guestName" class="form-control" required placeholder="กรุณาระบุ ชื่อ-นามสกุล">
@@ -166,7 +171,7 @@
 
           <div class="form-group">
             <label for="guestCount">จำนวนผู้ติดตาม (รวมตัวท่าน)</label>
-            <input type="number" id="guestCount" class="form-control" min="1" max="10" value="1">
+            <input type="number" id="guestCount" class="form-control" min="1" max="10" value="1" required>
           </div>
 
           <div class="form-group">
@@ -174,7 +179,7 @@
             <textarea id="wishes" class="form-control" rows="3" placeholder="เขียนคำอวยพรที่นี่..."></textarea>
           </div>
 
-          <button type="submit" class="submit-btn" id="submitBtn">ส่งแบบตอบรับ</button>
+          <button type="submit" class="submit-btn" id="submitBtn" onclick="submitRSVP(event)">ส่งแบบตอบรับ</button>
         </form>
 
         <div id="rsvpAlert"></div>

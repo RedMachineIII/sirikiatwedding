@@ -376,6 +376,13 @@ h1 {
   border: 1px solid #d8b6ad;
 }
 
+.line-button {
+  color: var(--white);
+  background: #00B900;
+  border: 1px solid #00B900;
+  border-radius: 999px;
+}
+
 /* ==========================================
    RSVP Form (แบบฟอร์มบันทึกข้อมูล)
 ========================================== */
