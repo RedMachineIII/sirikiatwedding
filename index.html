@@ -185,6 +185,93 @@
         <div id="rsvpAlert"></div>
       </div>
 
+      <!-- คำอวยพร -->
+      <div class="card">
+        <div class="eyebrow">GUESTBOOK · คำอวยพร</div>
+        <div class="divider"></div>
+        <section class="wishes-section">
+          <div class="wishes-header">
+            <div>
+              <div class="wish-count" id="wishCount">กำลังโหลด...</div>
+            </div>
+            <div class="carousel-nav">
+              <button type="button" class="nav-btn" onclick="scrollWishes(-1)" aria-label="เลื่อนซ้าย">‹</button>
+              <button type="button" class="nav-btn" onclick="scrollWishes(1)" aria-label="เลื่อนขวา">›</button>
+            </div>
+          </div>
+
+          <!-- แถบ Carousel เลื่อนซ้าย-ขวา -->
+          <div class="wishes-carousel" id="wishesCarousel">
+            <div class="wish-placeholder">กำลังโหลดคำอวยพร...</div>
+          </div>
+        </section>
+      </div>
+
+      <!-- บล็อกร่วมแสดงความยินดี (ใส่ซองออนไลน์) -->
+      <div class="card">
+        <div class="eyebrow">WEDDING GIFT · ร่วมแสดงความยินดี</div>
+        <div class="divider"></div>
+
+        <p class="gift-message">
+          สำหรับท่านที่อาจไม่สะดวกเดินทางมาร่วมงานด้วยตนเอง<br>
+          สามารถร่วมส่งความรักและแสดงความยินดีกับเราสองคน<br>
+          ผ่านช่องทางด้านล่างนี้ได้นะครับ/นะคะ          
+        </p>
+
+        <!-- กรอบรูป QR Code -->
+        <div class="qr-box">
+          <img src="img/qrcode.jpg" alt="QR Code ร่วมแสดงความยินดี">
+        </div>
+
+        <!-- รายละเอียดบัญชีธนาคาร -->
+        <div class="bank-info">
+          <div class="bank-name">ธนาคารกสิกรไทย (KBank)</div>
+          <div class="account-no" id="accountNumber">242-2-13901-4</div>
+          <div class="account-name">ชื่อบัญชี: น.ส. สิริยุพา แหวนนิล</div>
+
+          <button type="button" class="copy-btn" id="copyAccBtn" onclick="copyAccountNumber()">
+            คัดลอกเลขที่บัญชี
+          </button>
+        </div>
+
+        <div class="gift-message">ขอขอบพระคุณในทุกคำอวยพรและไมตรีจิตจากใจจริง</div>
+        <div class="divider"></div>
+      </div>
+
+      <!-- บล็อกแผนที่จัดงาน และที่พักใกล้เคียง -->
+      <div class="card">
+        <div class="eyebrow">LOCATION · แผนที่จัดงาน</div>
+        <div class="divider"></div>
+
+        <div class="venue-header">
+          <div class="venue-name">ราชาวดี รีสอร์ท โฮเทล ขอนแก่น</div>
+          <div class="venue-sub">Rachawadee Resort Hotel (ใกล้สนามบินขอนแก่น ต.บ้านเป็ด)</div>
+        </div>
+
+        <!-- กรอบรูปภาพแผนที่จัดงาน (แตะเพื่อขยายใหญ่ได้) -->
+        <div class="map-image-box">
+          <img src="img/map.jpg" alt="แผนที่สถานที่จัดงาน ราชาวดี รีสอร์ท โฮเทล ขอนแก่น">
+        </div>
+
+        <!-- ปุ่มเปิดนำทาง Google Maps -->
+        <a href="https://www.google.com/maps/search/?api=1&query=Rachawadee+Resort+Hotel+Khon+Kaen"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="gmap-btn">
+          เปิดนำทางใน Google Maps
+        </a>
+
+        <div class="divider"></div>
+        <div class="eyebrow">HOTELS · ที่พักแนะนำใกล้สถานที่จัดงาน</div>
+        
+        <!-- ส่วนแนะนำที่พักใกล้เคียง -->
+        <div class="hotel-section">
+          <div class="hotel-list" id="hotelList">
+            <div class="hotel-placeholder">กำลังโหลดรายชื่อที่พัก...</div>
+          </div>
+        </div>
+      </div>
+
       <div class="actions" style="margin-bottom: 20px;">
         <button class="action-button secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">
           กลับด้านบน ↑
