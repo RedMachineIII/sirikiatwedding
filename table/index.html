@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Siri Kiat | ผังโต๊ะรับแขก</title>
+  <link rel="apple-touch-icon-precomposed" href="../img/title.jpg" />
+  <link rel="icon" href="../img/title.jpg" />
+
+  <!-- Open Graph พรีวิวเมื่อส่งใน LINE -->
+  <meta property="og:title" content="Siriyupha 🤍 Kiattisak | ผังโต๊ะรับแขก">
+  <meta property="og:description" content="ตรวจสอบหมายเลขโต๊ะและรายชื่อแขก วันเสาร์ที่ 19 ธันวาคม 2569 ณ ราชาวดี รีสอร์ท โฮเทล ขอนแก่น">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=MonteCarlo&family=Rochester&family=Stalemate&display=swap" rel="stylesheet">
+
+  <!-- เชื่อมโยงไฟล์ CSS -->
+  <link rel="stylesheet" href="css/table.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <main class="page-wrap">
+    <header class="top-bar">
+      <div class="couple-en" style="margin-right: 100px;">Siriyupha</div>
+      <div class="couple-en" style="margin-left: 100px;">Kiattisak</div>
+      <div class="eyebrow" style="margin-top: 20px;">SATURDAY · 19 DECEMBER 2026</div>
+    </header>
+
+    <!-- ส่วนบน: รูปผังโต๊ะรับแขก -->
+    <section class="card">
+      <div class="eyebrow" style="text-align: center;">SEATING LAYOUT · ผังโต๊ะรับแขก</div>
+      <div class="divider"></div>
+      <p class="subtitle">ราชาวดี รีสอร์ท โฮเทล ขอนแก่น</p>
+
+      <div class="layout-frame">
+        <img src="../img/table.jpg" alt="ผังโต๊ะรับแขกงานแต่ง Siriyupha & Kiattisak">
+      </div>
+    </section>
+
+    <!-- ส่วนล่าง: หมายเลขโต๊ะ และรายชื่อแขก 10 ท่าน -->
+    <section class="card tables-card">
+      <div class="eyebrow" style="text-align: center;">GUEST SEATING · รายชื่อประจำโต๊ะ</div>
+      <div class="divider"></div>
+      <div class="tables-head">
+        <div>
+        </div>
+        <div class="table-count" id="tableCount">กำลังโหลด...</div>
+      </div>
+
+      <div class="search-box">
+        <input
+          type="search"
+          id="guestSearch"
+          placeholder="ค้นหาชื่อแขก หรือหมายเลขโต๊ะ..."
+          oninput="filterTables()"
+        >
+      </div>
+
+      <div class="tables-grid" id="tablesGrid">
+        <div class="loading-box">กำลังโหลดข้อมูลผังโต๊ะ...</div>
+      </div>
+    </section>
+
+    <footer style="text-align: center;">
+      <a href="../" class="back-link">← กลับหน้าการ์ดเชิญ</a>
+    </footer>
+  </main>
+
+  <script src="js/table.js"></script>
+</body>
+</html>

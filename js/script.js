@@ -169,10 +169,10 @@ async function loadWishesCarousel() {
   }
 }
 
-// เรียกโหลดทันทีและอัปเดตอัตโนมัติทุก 15 วินาที
 document.addEventListener('DOMContentLoaded', () => {
   loadWishesCarousel();
-  setInterval(loadWishesCarousel, 15000);
+  // เรียกโหลดทันทีและอัปเดตอัตโนมัติทุก 15 วินาที
+  // setInterval(loadWishesCarousel, 15000);
 });
 
 function copyAccountNumber() {

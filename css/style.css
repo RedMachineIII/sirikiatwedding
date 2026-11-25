@@ -39,7 +39,7 @@ button, a, input, select, textarea {
 
 .eyebrow {
   font-size: 11px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   color: var(--muted);
   text-transform: uppercase;
   margin-bottom: 8px;
