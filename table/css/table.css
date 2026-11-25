@@ -20,7 +20,7 @@ body {
   background: var(--bg-page);
   color: var(--text-main);
   line-height: 1.5;
-  padding: 20px 14px 48px;
+  padding: 20px 14px 30px;
 }
 
 .page-wrap {
@@ -218,4 +218,20 @@ body {
   padding: 20px;
   font-size: 12.5px;
   color: var(--text-muted);
+}
+
+/* โต๊ะเต็ม 10/10 ท่าน = สีเขียว */
+.table-badge.is-full {
+  color: #237A4B;
+  font-weight: 500;
+}
+
+/* รายการที่ระบุว่า "ว่าง" = สีแดง */
+.guest-list li.is-vacant {
+  color: #C0392B;
+  font-weight: 400;
+}
+
+.guest-list li.is-vacant span.idx {
+  color: #C0392B;
 }

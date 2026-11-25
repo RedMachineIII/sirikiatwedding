@@ -44,19 +44,24 @@ function renderTables(tables) {
   }
 
   grid.innerHTML = normalizedTables.map(item => {
+    const isFull = item.actualGuestsCount === 10;
+
     const guestsHtml = item.allGuests
-      .map((name, i) => `
-        <li title="${escapeHtml(name)}">
-          <span class="idx">${i + 1}.</span>${escapeHtml(name)}
-        </li>
-      `)
+      .map((name, i) => {
+        const isVacant = name === 'ว่าง';
+        return `
+          <li class="${isVacant ? 'is-vacant' : ''}" title="${escapeHtml(name)}">
+            <span class="idx">${i + 1}.</span>${escapeHtml(name)}
+          </li>
+        `;
+      })
       .join('');
 
     return `
       <article class="table-box">
         <div class="table-header">
-          <span class="table-no">โต๊ะที่ ${escapeHtml(item.tableNo)}</span>
-          <span class="table-badge">${item.actualGuestsCount}/10 ท่าน</span>
+          <span class="table-no">โต๊ะ ${escapeHtml(item.tableNo)}</span>
+          <span class="table-badge ${isFull ? 'is-full' : ''}">${item.actualGuestsCount}/10 ท่าน</span>
         </div>
         <ul class="guest-list">
           ${guestsHtml || '<li style="grid-column:1/-1;color:#856A5D;">ไม่มีรายชื่อ</li>'}
