@@ -235,3 +235,61 @@ body {
 .guest-list li.is-vacant span.idx {
   color: #C0392B;
 }
+
+/* ==========================================
+   Zone Legend (5 แถว ชิดซ้าย บล็อกอยู่กึ่งกลาง)
+========================================== */
+.zone-legend {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: fit-content;
+  margin: 14px auto 0;
+  padding-top: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
+  gap: 8px;
+}
+
+.zone-badge {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-main);
+  text-align: left;
+}
+
+.zone-badge strong {
+  font-weight: 500;
+  color: var(--seal-dark);
+}
+
+.zone-dot {
+  flex-shrink: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.zone-a .zone-dot { background: #F4C20D; }
+.zone-b .zone-dot { background: #C81010; }
+.zone-c .zone-dot { background: #0B3EC9; }
+.zone-d .zone-dot { background: #6B3A08; }
+.zone-e .zone-dot { background: #0D7A0D; }
+
+.table-no {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--seal-dark);
+}
+
+.zone-dot-a { background: #F4C20D; } /* โต๊ะ 1, 8 */
+.zone-dot-b { background: #C81010; } /* โต๊ะ 2-7 */
+.zone-dot-c { background: #0B3EC9; } /* โต๊ะ 9-14 */
+.zone-dot-d { background: #6B3A08; } /* โต๊ะ 15-21 */
+.zone-dot-e { background: #0D7A0D; } /* โต๊ะ 22-28 */

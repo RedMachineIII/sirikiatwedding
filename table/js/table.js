@@ -44,11 +44,12 @@ function renderTables(tables) {
   }
 
   grid.innerHTML = normalizedTables.map(item => {
-    const isFull = item.actualGuestsCount === 10;
+    let isFull = item.actualGuestsCount === 10;
+    let zoneDotClass = getZoneClass(item.tableNo);
 
-    const guestsHtml = item.allGuests
+    let guestsHtml = item.allGuests
       .map((name, i) => {
-        const isVacant = name === 'ว่าง';
+        let isVacant = name === 'ว่าง';
         return `
           <li class="${isVacant ? 'is-vacant' : ''}" title="${escapeHtml(name)}">
             <span class="idx">${i + 1}.</span>${escapeHtml(name)}
@@ -60,7 +61,10 @@ function renderTables(tables) {
     return `
       <article class="table-box">
         <div class="table-header">
-          <span class="table-no">โต๊ะ ${escapeHtml(item.tableNo)}</span>
+          <span class="table-no">
+            ${zoneDotClass ? `<span class="zone-dot ${zoneDotClass}"></span>` : ''}
+            โต๊ะ ${escapeHtml(item.tableNo)}
+          </span>
           <span class="table-badge ${isFull ? 'is-full' : ''}">${item.actualGuestsCount}/10 ท่าน</span>
         </div>
         <ul class="guest-list">
@@ -69,6 +73,16 @@ function renderTables(tables) {
       </article>
     `;
   }).join('');
+}
+
+function getZoneClass(tableNo) {
+  let num = parseInt(String(tableNo).replace(/[^0-9]/g, ''), 10);
+  if (num === 1 || num === 8) return 'zone-dot-a';
+  if (num >= 2 && num <= 7) return 'zone-dot-b';
+  if (num >= 9 && num <= 14) return 'zone-dot-c';
+  if (num >= 15 && num <= 21) return 'zone-dot-d';
+  if (num >= 22 && num <= 28) return 'zone-dot-e';
+  return '';
 }
 
 function filterTables() {
