@@ -293,3 +293,48 @@ body {
 .zone-dot-c { background: #0B3EC9; } /* โต๊ะ 9-14 */
 .zone-dot-d { background: #6B3A08; } /* โต๊ะ 15-21 */
 .zone-dot-e { background: #0D7A0D; } /* โต๊ะ 22-28 */
+
+.layout-canvas {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.layout-canvas > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.table-full-markers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.table-full-markers .full-stamp {
+  display: none;
+  position: absolute;
+  width: 5.5%;
+  height: auto;
+  transform: translate(-35%, -35%);
+  z-index: 10;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.table-full-markers .full-stamp[style*="right:"] {
+  transform: translate(35%, -35%);
+}
+
+.table-full-markers .full-stamp.is-visible {
+  display: block;
+}
+
+.table-full-markers .full-stamp img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 50%;
+}

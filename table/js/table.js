@@ -86,29 +86,32 @@ function getZoneClass(tableNo) {
 }
 
 function filterTables() {
-  const q = (document.getElementById('guestSearch')?.value || '').trim().toLowerCase();
+  let q = (document.getElementById('guestSearch')?.value || '').trim().toLowerCase();
   if (!q) {
     renderTables(allTables);
+    updateLayoutFullMarkers(allTables);
     return;
   }
 
-  const filtered = allTables.filter(t => {
-    const matchTable = String(t.tableNo || '').toLowerCase().includes(q);
-    const matchGuest = (t.guests || []).some(g => String(g).toLowerCase().includes(q));
+  let filtered = allTables.filter(t => {
+    let matchTable = String(t.tableNo || '').toLowerCase().includes(q);
+    let matchGuest = (t.guests || []).some(g => String(g).toLowerCase().includes(q));
     return matchTable || matchGuest;
   });
 
   renderTables(filtered);
+  updateLayoutFullMarkers(filtered);
 }
 
 async function loadTablesData() {
-  const grid = document.getElementById('tablesGrid');
+  let grid = document.getElementById('tablesGrid');
   try {
-    const res = await fetch(GAS_URL);
-    const result = await res.json();
+    let res = await fetch(GAS_URL);
+    let result = await res.json();
     if (result.status === 'success' && Array.isArray(result.tables)) {
       allTables = result.tables;
       renderTables(allTables);
+      updateLayoutFullMarkers(allTables);
     } else if (grid) {
       grid.innerHTML = '<div class="loading-box">ยังไม่มีข้อมูลในชีต Table</div>';
     }
@@ -120,4 +123,71 @@ async function loadTablesData() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadTablesData);
+document.addEventListener('DOMContentLoaded', () => {
+  initTableFullMarkers();
+  loadTablesData();
+});
+
+let FULL_ICON_SRC = '../img/full.png';
+
+// พิกัดมุมขวาล่างของแต่ละวงกลมหมายเลขโต๊ะ (หน่วย % เทียบกับขนาดรูปผัง)
+let TABLE_FULL_POSITIONS = (() => {
+  let positions = {};
+  let leftColX = [16.8, 34.6];
+  let rightColX = [23.5, 5.7];
+  let rowStartY = 26;
+  let rowStepY = 8.6;
+
+  for (let r = 0; r < 7; r++) {
+    let y = +(rowStartY + r * rowStepY).toFixed(2);
+    positions[r + 1] = { left: leftColX[0], top: y };
+    positions[r + 8] = { left: leftColX[1], top: y };
+    positions[r + 15] = { right: rightColX[0], top: y };
+    positions[r + 22] = { right: rightColX[1], top: y };
+  }
+
+  return positions;
+})();
+
+function initTableFullMarkers() {
+  let container = document.getElementById('tableFullMarkers');
+  if (!container) return;
+
+  let html = '';
+  for (let tNo = 1; tNo <= 28; tNo++) {
+    let pos = TABLE_FULL_POSITIONS[tNo];
+    if (!pos) continue;
+
+    let horizStyle = pos.right !== undefined
+      ? `right: ${pos.right}%;`
+      : `left: ${pos.left}%;`;
+
+    html += `
+      <span class="full-stamp" data-table="${tNo}" style="${horizStyle} top: ${pos.top}%;">
+        <img src="${FULL_ICON_SRC}" alt="โต๊ะ ${tNo} เต็ม">
+      </span>
+    `;
+  }
+  container.innerHTML = html;
+}
+
+function updateLayoutFullMarkers(tables) {
+  let fullSet = new Set();
+
+  (tables || []).forEach(item => {
+    let num = parseInt(String(item.tableNo || '').replace(/[^0-9]/g, ''), 10);
+    let guests = (item.guests || [])
+      .map(name => String(name || '').trim())
+      .filter(name => name !== '' && name !== 'ว่าง')
+      .slice(0, 10);
+
+    if (num >= 1 && num <= 28 && guests.length === 10) {
+      fullSet.add(num);
+    }
+  });
+
+  document.querySelectorAll('#tableFullMarkers .full-stamp').forEach(el => {
+    let tNo = parseInt(el.getAttribute('data-table'), 10);
+    el.classList.toggle('is-visible', fullSet.has(tNo));
+  });
+}
